@@ -55,7 +55,7 @@
 				mapaTEU.on('click', onMapClick);
                                 
                                 var $grad = $("#grad");
-   $.getJSON('https://localhost/teu/ustanovekulture.json', function(data) {
+   $.getJSON('ustanovekulture.json', function(data) {
                                         var gradovi = new Array();
 
                                         $.each(data, function(index, element) {
@@ -104,7 +104,7 @@ markersLayer.addTo(mapaTEU);                                                    
                        
                        
                         $("#getChart").click(function(){
-					$.getJSON('https://localhost/teu/ustanovekulture.json', function(dataC) {
+					$.getJSON('ustanovekulture.json', function(dataC) {
 
 						var biblioteke = new Array(); 
 						var bibliotekeDrilldown = new Array();
