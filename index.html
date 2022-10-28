@@ -31,7 +31,7 @@
 
                                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                                         attribution: 'By <a href="http://www.ftn.pr.ac.rs">FTN KM</a>',
-                                        maxZoom: 18,
+                                	maxZoom: 18,
                                         id: 'mapbox/streets-v11',
                                         tileSize: 512,
                                         zoomOffset: -1,
@@ -44,14 +44,14 @@
    					fillOpacity: 0.5,
    					radius: 10000
 					}).addTo(mapaTEU);
-					circle.bindPopup("<b>\u041E\u043A\u0440\u0443\u0433 \u0441\u0430 \u043D\u0430\u0458\u0432\u0435\u045B\u0438\u043C \u0431\u0440\u043E\u0458\u0435\u043C \u0431\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430.</b>");
+				circle.bindPopup("<b>\u041E\u043A\u0440\u0443\u0433 \u0441\u0430 \u043D\u0430\u0458\u0432\u0435\u045B\u0438\u043C \u0431\u0440\u043E\u0458\u0435\u043C \u0431\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430.</b>");
 
                                 var popup = L.popup();
                                 function onMapClick(e) {
-				popup
-                                .setLatLng(e.latlng)        
-				.setContent("\u041A\u043B\u0438\u043A\u043D\u0443\u043B\u0438 \u0441\u0442\u0435 \u043D\u0430 \u043B\u043E\u043A\u0430\u0446\u0438\u0458\u0443 \u0441\u0430 \u0441\u043B\u0435\u0434\u0435\u045B\u0438\u043C \u043A\u043E\u043E\u0440\u0434\u0438\u043D\u0430\u0442\u0430\u043C\u0430: " + e.latlng.toString())
-                                .openOn(mapaTEU);      
+					popup
+                                	.setLatLng(e.latlng)        
+					.setContent("\u041A\u043B\u0438\u043A\u043D\u0443\u043B\u0438 \u0441\u0442\u0435 \u043D\u0430 \u043B\u043E\u043A\u0430\u0446\u0438\u0458\u0443 \u0441\u0430 \u0441\u043B\u0435\u0434\u0435\u045B\u0438\u043C \u043A\u043E\u043E\u0440\u0434\u0438\u043D\u0430\u0442\u0430\u043C\u0430: " + e.latlng.toString())
+                                	.openOn(mapaTEU);      
 				}
 				mapaTEU.on('click', onMapClick);
                                 
@@ -72,7 +72,6 @@
                                         });
 
                                         $.each(data, function(index, element) {
-
                                                 if(data[index]['okrug'] == '\u0421\u0420\u0415\u0414\u040a\u0415-\u0411\u0410\u041d\u0410\u0422\u0421\u041a\u0418 \u041e\u041a\u0420\u0423\u0413')
                                                 {
    							var selectedValue = '\u0421\u0420\u0415\u0414\u040a\u0415-\u0411\u0410\u041d\u0410\u0422\u0421\u041a\u0418 \u041e\u041a\u0420\u0423\u0413';
@@ -90,11 +89,12 @@
                                                 var bounds = Array();
                                                 $.each(data, function(index, element) {
                                                         if(data[index]['okrug'] == selektovano)
-     {
+    							{
                                                                 var marker = L.marker([element.latitude,element.longitude]);
                                                                 marker.bindPopup("<b>\u0434\u0438\u0440\u0435\u043A\u0442\u043E\u0440: </b>" + element.direktor + "<br><b>\u0435\_\u043C\u0430\u0438\u043B:</b> " + element.e_mail +  "<br><b>\u043A\u043E\u043D\u0442\u0430\u043A\u0442\_\u043B\u0438\u0446\u0435\:</b> " + element.kontakt_lice + "<br><b>\u043C\u0435\u0441\u0442\u043E\:</b> " + element.mesto + "<br><b>\u043D\u0430\u0437\u0438\u0432\_\u0443\u0441\u0442\u0430\u043D\u043E\u0432\u0435:</b> " + element.naziv_ustanove + "<br><b>\u043E\u043A\u0440\u0443\u0433:</b> " + element.okrug + "<br><b>\u043E\u043F\u0448\u0442\u0438\u043D\u0430:</b> " + element.opstina + "<br><b>\u043F\u043E\u0437\u0438\u0432\u043D\u0438\_\u0431\u0440\u043E\u0458:</b> " + element.pozivni_broj + "<br><b>\u0440\u0435\u0433\u0438\u043E\u043D:</b> " + element.region + "<br><b>\u0442\u0435\u043B:</b> " + element.tel + "<br><b>\u0443\u043B\u0438\u0446\u0430\_\u0431\u0440\u043E\u0458:</b> " + element.ulica_broj + "<br><b>website:</b> " + element.website);
-    markersLayer.addLayer(marker);
-markersLayer.addTo(mapaTEU);                                                                 bounds.push([element.latitude,element.longitude]);
+    								markersLayer.addLayer(marker);
+								markersLayer.addTo(mapaTEU);                                                                 
+								bounds.push([element.latitude,element.longitude]);
                                                         }
                                                 });
                                                 bounds = new L.LatLngBounds(bounds);
@@ -102,9 +102,8 @@ markersLayer.addTo(mapaTEU);                                                    
                                                 console.log($(this).val());
                                         });
                                 });
-                       
-                       
-                        $("#getChart").click(function(){
+
+                        	$("#getChart").click(function(){
 					$.getJSON('ustanovekulture.json', function(dataC) {
 
 						var biblioteke = new Array(); 
@@ -115,70 +114,49 @@ markersLayer.addTo(mapaTEU);                                                    
 						var temp = new Array();
 						var temp1 = new Array();
 
-						//vadimo opstine i okruge iz JSON-a kako bi smo posle mogli da formiramo inicijalni i drillDown grafikon
-                                              $.each(dataC, function(index, element) {
-                                                      opstine.push(dataC[index]['opstina']);
-                                                      okruzi.push(dataC[index]['okrug']);
-                                              });
+                                              	$.each(dataC, function(index, element) {
+                                                	opstine.push(dataC[index]['opstina']);
+                                                      	okruzi.push(dataC[index]['okrug']);
+                                              	});
 						
-						//filtriramo opstine i izbacujemo duplikate
-                                              opstine = opstine.filter(function(itm, i, a) {
+                                              	opstine = opstine.filter(function(itm, i, a) {
                                                       return i == opstine.indexOf(itm);
-                                              });
-                                              //sortiramo opstine
-                                              opstine = opstine.sort();
-
-						//filtriramo okruge i izbacujemo duplikate
-                                              okruzi = okruzi.filter(function(itm, i, a) {
-                                                      return i == okruzi.indexOf(itm);
-                                              });
-                                              //sortiramo okruge
-                                              okruzi = okruzi.sort();
-
-						//u ovoj petlji za svaki okrug pronalazimo pripadajuce opstine kako bi za njih u originalnom 
-						//dataC nizu dobijenom iz JSON-a izvukli podatke za drillDown, tj. videli koliko biblioteka ima
-						//u svakoj opstini okruga						
+                                              	});
+						opstine = opstine.sort();
+						okruzi = okruzi.filter(function(itm, i, a) {
+							return i == okruzi.indexOf(itm);
+						});
+                                              	okruzi = okruzi.sort();
+					
 						$.each(okruzi,function(index2,element2) {
-							//ovde formiramo X osu pocetnog grafikona
 							biblioteke.push({name:element2,y:0,drilldown:element2})
-							
-							//u ovoj petlji brojimo opstine u okrugu i njihovo pojavljivanje radi formiranja drillDown-a
+
 							$.each(opstine,function(index3,element3) {
-								//ova promenljiva nam je potrebna kako bi smo u drillDown-u prikazali samo one opstine 
-								//za okrug koje imaju biblioteke
 								temp1 = dataC.filter(value => value.opstina === element3 && value.okrug === element2).length;
 								if (temp1 != 0)
 								{
 									temp = [element3,temp1];
 								}
-								//u ovaj niz postavimo podatke za drillDown
-		                                      	bibliotekeDrilldownData.push(temp);
-		                                      });
-		                                      //iz prethodno formiranog niza brisemo duplikate
-		                                      bibliotekeDrilldownData = bibliotekeDrilldownData.filter(function(itm, i, a) {
+		                                      		bibliotekeDrilldownData.push(temp);
+		                                      	});
+
+		                                      	bibliotekeDrilldownData = bibliotekeDrilldownData.filter(function(itm, i, a) {
 		                                              return i == bibliotekeDrilldownData.indexOf(itm);
-		                                      });
-		                                      //sklanjamo prvi podniz jer je to opstina koja ne pripada tekucem okrugu	
-                                              	bibliotekeDrilldownData[0] = [];	                                      
-		                                       //console.log(bibliotekeDrilldownData[0],bibliotekeDrilldownData[1]);
-		                                       //postavljamo podatke u drillDown				
+		                                      	});
+
+                                              		bibliotekeDrilldownData[0] = [];	                                      
 							bibliotekeDrilldown.push({name:element2,id:element2,data:bibliotekeDrilldownData})
-							//resetujemo niz i prelazimo u novu iteraciju okruga
 							bibliotekeDrilldownData = [];
 						});
-						//u ovoj petlji za svaki okrug brojimo broj opstina koje imaju biblioteke i to su podaci
-						//koji ce se prikazati na prvo ucitavanje grafikona
-						$.each(biblioteke,function(index4,element4) {
-                                              	$.each(dataC,function(index5,element5) {
-                                              		if (element4['name'] == element5['okrug'])
-                                              		{
-                                              			element4['y'] +=1 ;
-                                              		}
-                                                	});
-                                              });
-                                              //console.log(biblioteke);
-                                              //console.log(bibliotekeDrilldown);
 
+						$.each(biblioteke,function(index4,element4) {
+                                              		$.each(dataC,function(index5,element5) {
+                                              			if (element4['name'] == element5['okrug'])
+                                              			{
+                                              				element4['y'] +=1 ;
+                                              			}
+                                                	});
+                                             	});
 
 						Highcharts.chart('container', {
     							chart: {
@@ -240,12 +218,7 @@ markersLayer.addTo(mapaTEU);                                                    
 						});	
 					});
 				});
-
-                                                        });   
-                                                                           
-                       
-                       
-                       
+			});       
                 </script>
                 <style>
                         #mapid { height: 480px; }
@@ -280,7 +253,6 @@ markersLayer.addTo(mapaTEU);                                                    
                                 </div>
                         </div>
                 </div>
-        
                 <br>
                 <div class="container">
                         <div class="row">
@@ -288,16 +260,10 @@ markersLayer.addTo(mapaTEU);                                                    
                                         <button type="button" class="btn btn-primary" id="getChart">ИСЦРТАЈ ГРАФИКОН</button>
                                         <figure class="highcharts-figure">
                                                 <div id="container"></div>
-                                                <p class="highcharts-description">
-                                                        <code>&#1054;&#1089;&#1085;&#1086;&#1074;&#1085;&#1080; &#1075;&#1088;&#1072;&#1092;&#1080;&#1082;&#1086;&#1085;</code>
-                                                </p>
                                         </figure>
                                         <br>
                                 </div>
                         </div>
                 </div>
         </body>
-       
-       
-       
 </html>
