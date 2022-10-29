@@ -44,13 +44,13 @@
    					fillOpacity: 0.5,
    					radius: 10000
 					}).addTo(mapaTEU);
-				circle.bindPopup("<b>\u041E\u043A\u0440\u0443\u0433 \u0441\u0430 \u043D\u0430\u0458\u0432\u0435\u045B\u0438\u043C \u0431\u0440\u043E\u0458\u0435\u043C \u0431\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430.</b>");
+				circle.bindPopup("<b>Округ са највећим бројем библиотека.</b>");
 
                                 var popup = L.popup();
                                 function onMapClick(e) {
 					popup
                                 	.setLatLng(e.latlng)        
-					.setContent("\u041A\u043B\u0438\u043A\u043D\u0443\u043B\u0438 \u0441\u0442\u0435 \u043D\u0430 \u043B\u043E\u043A\u0430\u0446\u0438\u0458\u0443 \u0441\u0430 \u0441\u043B\u0435\u0434\u0435\u045B\u0438\u043C \u043A\u043E\u043E\u0440\u0434\u0438\u043D\u0430\u0442\u0430\u043C\u0430: " + e.latlng.toString())
+					.setContent("Кликнули сте на локацију са следећим координатама: " + e.latlng.toString())
                                 	.openOn(mapaTEU);      
 				}
 				mapaTEU.on('click', onMapClick);
@@ -164,11 +164,11 @@
     							},
     							title: {
         							align: 'left',
-        							text: '\u0411\u0440\u043E\u0458\ \u0431\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430\ \u043F\u043E\ \u043E\u043A\u0440\u0443\u0437\u0438\u043C\u0430'
+        							text: 'Број библиотека по окрузима'
     							},
 							subtitle: {
 								align: 'left',
-								text: '\u041A\u043B\u0438\u043A\u043D\u0438\u0442\u0435 \u043D\u0430 \u043E\u043A\u0440\u0443\u0433 \u0437\u0430 \u0432\u0438\u0448\u0435 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0458\u0430'
+								text: 'Кликните на округ за више информација'
 							},
 						   	accessibility: {
 								announceNewData: {
@@ -180,7 +180,7 @@
     							},
 						    	yAxis: {
 								title: {
-							    		text: 'Total percent market share'
+							    		text: 'Укупан број библиотека по округу'
 								}
 						    	},
 						    	legend: {
@@ -202,7 +202,7 @@
 						    	},
 						    	series: [
 							{
-							    name: "\u0411\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0435",
+							    name: "Библиотеке",
 							    colorByPoint: true,
 							    data: biblioteke
 							}
